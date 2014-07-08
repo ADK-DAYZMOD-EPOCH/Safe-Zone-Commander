@@ -31,6 +31,7 @@ Installation Steps
 - Unpack your mission PBO using your favorite pbo manager (I use PBO MANAGER personally).
 - Inside your mission directory (where you extracted your pbo to), extract the folder AGN inside this folder.
 - Open the missions init.sqf at the very bottom insert:
+
 	[] execvm 'AGN\agn_SafeZoneCommander.sqf';
 	
 Picture/Video
