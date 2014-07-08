@@ -1,0 +1,22 @@
+Version History
+
+
+Update v0.2:
+- You can now change the setting '_safeZone_Vehicles_AllowGearFromWithinVehicles' to allow the gear screen to open while the player is inside a vehicle.
+
+Update v0.2.1
+- Fixed a potential issue where vehicles would sometimes not be able to fire their weapon even after leaving a trader zone.
+
+Update v0.2.2
+- Missed 'then' on an if statement - serves me right for coding it at work :p
+
+Update v0.2.3
+- Fixed godmode not turning off when exiting a safe zone.
+
+Update v0.3
+- Fixed a lot of problems due to me attempting to use private variables outside of the scope that they were created in (oops!).
+
+Update v0.4
+- Fixed public vars being declared as private vars, causing the script to not load. (Darn you Find & Replace!)
+
+All should be working okay for this release.
