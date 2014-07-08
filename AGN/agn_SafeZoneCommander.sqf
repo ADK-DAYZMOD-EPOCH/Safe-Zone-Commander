@@ -48,6 +48,7 @@ while {true} do {
 		_thePlayer removeAllEventHandlers "handleDamage";
 		_thePlayer addEventHandler ["handleDamage", {false}];
 		_thePlayer allowDamage false;
+		{_x allowdamage false } foreach (nearestObjects [player,['building','LandVehicle','Air'], 400]);
 	};
 	
 	if ( AGN_safeZone_Players_DisableWeaponFiring ) then
@@ -199,7 +200,7 @@ while {true} do {
 	AGN_LastPlayerLookedAtCountDown = 5;
 	terminate _antiBackpackThread;
 	terminate _antiBackpackThread2;
-	if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Exiting Trader Area - God Mode Disabled"); };
+	if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Exiting Trader Area - God Mode protection will be removed in 5-10 seconds to prevent safezone campers."); };
 	
 	if ( AGN_safeZone_Vehicles_DisableMountedGuns ) then
 	{
@@ -223,6 +224,9 @@ while {true} do {
 	
 	if ( AGN_safeZoneGodmode ) then
 	{
+		sleep 10;
+		systemChat ( "[AGN] Protection disabled, be careful!" );
+		{_x allowdamage true } foreach (nearestObjects [player,['LandVehicle','Air'], 75]);
 		player_zombieCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_zombieCheck.sqf";
 		fnc_usec_damageHandler = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_damageHandler.sqf";
 		_thePlayer addEventHandler ["handleDamage", {true}];
